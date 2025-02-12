@@ -19,8 +19,8 @@ function yes() {
     question.textContent = "Yey! It's a date then ❤️";
     gif.src = "assets/giphy.gif";
 
-    // Create falling hearts
-    createHearts(100);
+    // Create falling hearts with a sprinkling effect
+    createHearts(50);
 }
 
 // No button phrases and GIFs
@@ -47,7 +47,7 @@ function no() {
     personalMessage.style.display = 'none';
 }
 
-// Function to create falling hearts
+// Function to create falling hearts with random movement
 function createHearts(numbers) {
     for (var i = 0; i < numbers; i++) {
         var heart = document.createElement("img");
