@@ -53,28 +53,18 @@
   .heart {
     position: absolute;
     z-index: 10; /* Ensure hearts appear on top */
-    animation: heartAnimation 5s linear forwards, sprinkleEffect 2s infinite alternate ease-in-out;
+    animation: fallAnimation 5s linear forwards;
   }
   
-  /* Hearts fall down smoothly */
-  @keyframes heartAnimation {
+  @keyframes fallAnimation {
     0% {
       opacity: 1;
-      transform: translateY(-10vh) scale(1);
+      transform: translateY(0) translateX(0) scale(1);
     }
     100% {
       opacity: 0;
-      transform: translateY(100vh) scale(0.8);
-    }
-  }
-  
-  /* Hearts sprinkle left and right as they fall */
-  @keyframes sprinkleEffect {
-    0% {
-      transform: translateX(-30px);
-    }
-    100% {
-      transform: translateX(30px);
+      /* The heart falls 100vh down and drifts horizontally by its random drift value */
+      transform: translateY(100vh) translateX(var(--drift)) scale(0.8);
     }
   }
   
@@ -89,12 +79,12 @@
   /* Personal Message Styling */
   .personal-message {
     font-size: 1.8rem;
-    color: #fff5d7; /* Soft warm color */
+    color: #fff5d7;
     font-weight: bold;
     text-align: center;
     margin-top: 20px;
     padding: 15px;
-    background-color: rgba(255, 192, 203, 0.3); /* Light pink background */
+    background-color: rgba(255, 192, 203, 0.3);
     border-radius: 12px;
     border: 2px solid white;
     max-width: 80%;
@@ -104,7 +94,6 @@
     animation: fadeIn 1.5s ease-in-out forwards;
   }
   
-  /* Fade-in animation for the personal message */
   @keyframes fadeIn {
     0% {
       opacity: 0;

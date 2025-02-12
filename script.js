@@ -15,7 +15,7 @@ function yes() {
   // Update UI elements
   text.style.display = 'block';
   buttons.style.display = 'none';
-  question.textContent = "Yey! It's a date then ❤️";
+  question.textContent = "YAY!! Okay I owe you a date for this year than ;)";
   gif.src = "assets/giphy.gif";
   
   // Start continuous heart flurry
@@ -55,22 +55,27 @@ function no() {
 // Function to create an individual heart element
 function createHeart() {
   var heart = document.createElement("img");
-  heart.src = "assets/heart2.png"; // Ensure this file exists in your assets folder
+  heart.src = "assets/heart2.png"; // Make sure this file exists in your assets folder
   heart.alt = "Heart";
   heart.classList.add("heart");
-
-  // Set random size between 10px and 50px
+  
+  // Set a random size between 10px and 50px
   var size = Math.floor(Math.random() * 40) + 10;
   heart.style.width = size + "px";
   heart.style.height = size + "px";
-
-  // Position heart randomly along the top (starting above the viewport)
-  heart.style.left = Math.random() * window.innerWidth + "px";
+  
+  // Position the heart at a random horizontal position (taking its size into account)
+  heart.style.left = Math.random() * (window.innerWidth - size) + "px";
+  // Start above the screen
   heart.style.top = "-50px";
-
+  
+  // Set a random horizontal drift between -30px and 30px using a CSS variable
+  var drift = Math.random() * 60 - 30;
+  heart.style.setProperty('--drift', drift + 'px');
+  
   document.body.appendChild(heart);
-
-  // Remove the heart after 5 seconds
+  
+  // Remove the heart after 5 seconds to prevent overload
   setTimeout(() => {
     heart.remove();
   }, 5000);
@@ -81,8 +86,7 @@ function startHeartFlurry() {
   let heartInterval = setInterval(() => {
     createHeart();
   }, 150); // Generate a new heart every 150ms
-
-  // Stop generating hearts after 7 seconds
+  
   setTimeout(() => {
     clearInterval(heartInterval);
   }, 7000);
