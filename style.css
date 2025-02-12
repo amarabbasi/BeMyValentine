@@ -6,9 +6,9 @@
     font-size: 1.5rem;
     font-family: 'Kalam', cursive;
     color: wheat;
-}
-
-body {
+  }
+  
+  body {
     position: relative;
     height: 100vh;
     width: 100%;
@@ -19,75 +19,75 @@ body {
     gap: 1rem;
     overflow: hidden;
     background-color: rgba(227, 61, 148);
-}
-
-/* Button Styles */
-button {
+  }
+  
+  /* Button Styles */
+  button {
     font-size: 1rem;
-    padding: .4rem 1rem;
+    padding: 0.4rem 1rem;
     border: 1px solid #000000;
     border-radius: 10px;
     color: #000000;
     cursor: pointer;
-}
-
-.yes {
+  }
+  
+  .yes {
     background-color: lightgreen;
-}
-.yes:hover {
+  }
+  .yes:hover {
     background-color: rgba(0,200,0,1);
-}
-.no {
+  }
+  .no {
     background-color: red;
-}
-.no:hover {
+  }
+  .no:hover {
     background-color: rgba(200,0,0,1);
-}
-
-/* Image Styles */
-.giffy {
+  }
+  
+  /* Image Styles */
+  .giffy {
     border-radius: 20px;
-}
-
-/* Falling Heart Animation */
-.heart {
+  }
+  
+  /* Falling Heart Animation */
+  .heart {
     position: absolute;
     z-index: 10; /* Ensure hearts appear on top */
     animation: heartAnimation 5s linear forwards, sprinkleEffect 2s infinite alternate ease-in-out;
-}
-
-/* Hearts fall down smoothly */
-@keyframes heartAnimation {
+  }
+  
+  /* Hearts fall down smoothly */
+  @keyframes heartAnimation {
     0% {
-        opacity: 1;
-        transform: translateY(-10vh) scale(1);
+      opacity: 1;
+      transform: translateY(-10vh) scale(1);
     }
     100% {
-        opacity: 0;
-        transform: translateY(100vh) scale(0.8);
+      opacity: 0;
+      transform: translateY(100vh) scale(0.8);
     }
-}
-
-/* Hearts sprinkle left and right as they fall */
-@keyframes sprinkleEffect {
+  }
+  
+  /* Hearts sprinkle left and right as they fall */
+  @keyframes sprinkleEffect {
     0% {
-        transform: translateX(-30px);
+      transform: translateX(-30px);
     }
     100% {
-        transform: translateX(30px);
+      transform: translateX(30px);
     }
-}
-
-/* Text & Messages */
-.question {
+  }
+  
+  /* Text & Messages */
+  .question {
     text-align: center;
-}
-.text {
+  }
+  .text {
     display: none;
-}
-
-/* Personal Message Styling */
-.personal-message {
+  }
+  
+  /* Personal Message Styling */
+  .personal-message {
     font-size: 1.8rem;
     color: #fff5d7; /* Soft warm color */
     font-weight: bold;
@@ -99,22 +99,20 @@ button {
     border: 2px solid white;
     max-width: 80%;
     box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-}
-
-/* Fade-in animation for the personal message */
-.personal-message {
     opacity: 0;
     transform: translateY(-10px);
     animation: fadeIn 1.5s ease-in-out forwards;
-}
-
-@keyframes fadeIn {
+  }
+  
+  /* Fade-in animation for the personal message */
+  @keyframes fadeIn {
     0% {
-        opacity: 0;
-        transform: translateY(-10px);
+      opacity: 0;
+      transform: translateY(-10px);
     }
     100% {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
     }
-}
+  }
+  
