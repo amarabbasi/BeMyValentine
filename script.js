@@ -19,8 +19,8 @@ function yes() {
     question.textContent = "Yey! It's a date then ❤️";
     gif.src = "assets/giphy.gif";
 
-    // Create falling hearts with a sprinkling effect
-    createHearts(50);
+    // Start continuous heart flurry
+    startHeartFlurry();
 }
 
 // No button phrases and GIFs
@@ -47,29 +47,39 @@ function no() {
     personalMessage.style.display = 'none';
 }
 
-// Function to create falling hearts with random movement
-function createHearts(numbers) {
-    for (var i = 0; i < numbers; i++) {
-        var heart = document.createElement("img");
+// Function to create individual hearts
+function createHeart() {
+    var heart = document.createElement("img");
 
-        heart.src = "assets/heart2.png"; // Ensure file exists in "assets/"
-        heart.alt = "Heart";
-        heart.classList.add("heart");
+    heart.src = "assets/heart2.png"; // Ensure the file exists in "assets/"
+    heart.alt = "Heart";
+    heart.classList.add("heart");
 
-        // Set random size
-        var size = Math.floor(Math.random() * 31) + 20; // Between 20px and 50px
-        heart.style.width = size + "px";
-        heart.style.height = size + "px";
+    // Set random size
+    var size = Math.floor(Math.random() * 40) + 10; // Random size between 10px and 50px
+    heart.style.width = size + "px";
+    heart.style.height = size + "px";
 
-        // Position hearts randomly at the top
-        heart.style.left = Math.random() * window.innerWidth + "px";
-        heart.style.top = "-50px"; // Start from above screen
+    // Position heart randomly at the top
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.top = "-50px"; // Start from above screen
 
-        document.body.appendChild(heart);
+    document.body.appendChild(heart);
 
-        // Remove hearts after falling
-        setTimeout(() => {
-            heart.remove();
-        }, 4000); // 4 seconds duration
-    }
+    // Remove heart after animation ends
+    setTimeout(() => {
+        heart.remove();
+    }, 5000); // 5 seconds duration
+}
+
+// Function to continuously generate hearts for a few seconds
+function startHeartFlurry() {
+    let heartInterval = setInterval(() => {
+        createHeart();
+    }, 150); // Generate a new heart every 150ms
+
+    // Stop after 7 seconds
+    setTimeout(() => {
+        clearInterval(heartInterval);
+    }, 7000);
 }

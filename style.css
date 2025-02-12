@@ -49,13 +49,11 @@ button {
     border-radius: 20px;
 }
 
-/* Sprinkling Hearts Animation */
+/* Falling Heart Animation */
 .heart {
     position: absolute;
-    width: 40px;
-    height: 40px;
     z-index: 10; /* Ensure hearts appear on top */
-    animation: heartAnimation 4s linear forwards, sprinkleEffect 2s infinite alternate ease-in-out;
+    animation: heartAnimation 5s linear forwards, sprinkleEffect 2s infinite alternate ease-in-out;
 }
 
 /* Hearts fall down smoothly */
@@ -73,10 +71,10 @@ button {
 /* Hearts sprinkle left and right as they fall */
 @keyframes sprinkleEffect {
     0% {
-        transform: translateX(-20px);
+        transform: translateX(-30px);
     }
     100% {
-        transform: translateX(20px);
+        transform: translateX(30px);
     }
 }
 
