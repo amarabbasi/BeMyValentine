@@ -14,13 +14,13 @@ function yes() {
     text.style.display = 'block';
     buttons.style.display = 'none';
     question.textContent = "Yey! It's a date then ❤️";
-    gif.src = '/assets/giphy.gif';
+    gif.src = "assets/giphy.gif";
 
     createHearts(100);
 }
 
 var phrase = ['why no?', 'u dont want?:(', 'still no?', 'should be yes!', 'yess ;)'];
-var gifs = ['/assets/hug-me-im-sad.gif', '/assets/goma-peach.gif', '/assets/cash-app-empty.gif', '/assets/sad.gif', '/assets/cry-cute.gif', '/assets/reaction-sad.gif'];
+var gifs = ["assets/hug-me-im-sad.gif", "assets/goma-peach.gif", "assets/cash-app-empty.gif", "assets/sad.gif", "assets/cry-cute.gif", "assets/reaction-sad.gif"];
 var noCount = 0;
 
 function no() {
@@ -45,7 +45,7 @@ function createHearts(numbers) {
     for (var i = 0; i < numbers; i++) {
         var heart = document.createElement("img");
 
-        heart.src = '/assets/Heart_corazón.svg.png';
+        heart.src = "assets/Heart_corazon.svg.png";
         heart.alt = "Heart";
         heart.classList.add("heart");
         heart.classList.add("heart" + (i % 3 + 1)); // Assign different animation classes
