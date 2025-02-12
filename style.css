@@ -7,6 +7,7 @@
     font-family: 'Kalam', cursive;
     color: wheat;
 }
+
 body {
     position: relative;
     height: 100vh;
@@ -48,13 +49,13 @@ button {
     border-radius: 20px;
 }
 
-/* Heart Animation */
+/* Falling Heart Animation */
 .heart {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    animation: heartAnimation 5.5s linear forwards;
-    z-index: 10; /* Makes sure hearts appear above other elements */
+    width: 40px;
+    height: 40px;
+    z-index: 10; /* Ensure hearts appear on top */
+    animation: heartAnimation 4s linear forwards; /* Smooth falling effect */
 }
 
 @keyframes heartAnimation {
@@ -64,7 +65,7 @@ button {
     }
     100% {
         opacity: 0;
-        transform: translateY(100vh) scale(0.5);
+        transform: translateY(100vh) scale(0.8);
     }
 }
 

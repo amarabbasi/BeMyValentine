@@ -1,3 +1,4 @@
+// Select page elements
 const gif = document.querySelector('.giffy');
 const yesBtn = document.querySelector('.yes');
 const noBtn = document.querySelector('.no');
@@ -7,22 +8,27 @@ const text = document.querySelector('.text');
 const body = document.querySelector('body');
 const personalMessage = document.querySelector('.personal-message'); // Select personal message
 
+// Function for "Yes" button
 function yes() {
     // Hide personal message
     personalMessage.style.display = 'none';
 
+    // Update UI elements
     text.style.display = 'block';
     buttons.style.display = 'none';
     question.textContent = "Yey! It's a date then ❤️";
     gif.src = "assets/giphy.gif";
 
+    // Create falling hearts
     createHearts(100);
 }
 
+// No button phrases and GIFs
 var phrase = ['why no?', 'u dont want?:(', 'still no?', 'should be yes!', 'yess ;)'];
 var gifs = ["assets/hug-me-im-sad.gif", "assets/goma-peach.gif", "assets/cash-app-empty.gif", "assets/sad.gif", "assets/cry-cute.gif", "assets/reaction-sad.gif"];
 var noCount = 0;
 
+// Function for "No" button
 function no() {
     if (noCount !== 5) {
         noBtn.style.position  = 'absolute';
@@ -41,22 +47,29 @@ function no() {
     personalMessage.style.display = 'none';
 }
 
+// Function to create falling hearts
 function createHearts(numbers) {
     for (var i = 0; i < numbers; i++) {
         var heart = document.createElement("img");
 
-        heart.src = "assets/heart2.png";
+        heart.src = "assets/heart2.png"; // Ensure file exists in "assets/"
         heart.alt = "Heart";
         heart.classList.add("heart");
-        heart.classList.add("heart" + (i % 3 + 1)); // Assign different animation classes
-        var size = Math.floor(Math.random() * 51) + 50; // Random size between 50 and 100
+
+        // Set random size
+        var size = Math.floor(Math.random() * 31) + 20; // Between 20px and 50px
         heart.style.width = size + "px";
         heart.style.height = size + "px";
-        heart.style.left = Math.random() * (window.innerWidth - size) + "px";
-        heart.style.top = Math.random() * (window.innerHeight - size) + "px";
-        document.querySelector('body').appendChild(heart);
-        setTimeout(function() {
+
+        // Position hearts randomly at the top
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = "-50px"; // Start from above screen
+
+        document.body.appendChild(heart);
+
+        // Remove hearts after falling
+        setTimeout(() => {
             heart.remove();
-        }, 1500); // Remove the heart after 1.5 seconds
+        }, 4000); // 4 seconds duration
     }
 }
