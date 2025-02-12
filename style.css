@@ -1,3 +1,4 @@
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -18,12 +19,15 @@ body {
     overflow: hidden;
     background-color: rgba(227, 61, 148);
 }
+
+/* Button Styles */
 button {
     font-size: 1rem;
     padding: .4rem 1rem;
     border: 1px solid #000000;
     border-radius: 10px;
     color: #000000;
+    cursor: pointer;
 }
 
 .yes {
@@ -38,13 +42,33 @@ button {
 .no:hover {
     background-color: rgba(200,0,0,1);
 }
+
+/* Image Styles */
 .giffy {
     border-radius: 20px;
 }
+
+/* Heart Animation */
 .heart {
     position: absolute;
-    animation: heartAnimation 5.5s ease-out forwards;
+    width: 50px;
+    height: 50px;
+    animation: heartAnimation 5.5s linear forwards;
+    z-index: 10; /* Makes sure hearts appear above other elements */
 }
+
+@keyframes heartAnimation {
+    0% {
+        opacity: 1;
+        transform: translateY(-10vh) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) scale(0.5);
+    }
+}
+
+/* Text & Messages */
 .question {
     text-align: center;
 }
